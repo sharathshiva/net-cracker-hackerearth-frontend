@@ -1,0 +1,40 @@
+<p>
+  <mat-toolbar color="primary">
+    <span>Net Cracker</span>
+    <span class="example-spacer"></span>
+  </mat-toolbar>
+</p>
+<span (click)="fileUpload.click()">
+  {{fileName || "No file uploaded yet."}}
+  <button mat-raised-button color="primary">Choose File</button>
+  <input #fileUpload type="file" accept="pdf"
+         (change)="onFileSelected($event)"  style="display:none">
+</span>
+<!-- <input type="file" class="file-input"
+       (change)="onFileSelected($event)" #fileUpload>
+
+<div class="file-upload">
+
+   {{fileName || "No file uploaded yet."}}
+
+    <button mat-mini-fab color="primary" class="upload-btn"
+      (click)="fileUpload.click()">
+        <mat-icon>attach_file</mat-icon>
+    </button>
+</div> -->
+<mat-list>
+  <div mat-subheader>Files</div>
+  <div *ngIf="fileLinks.length == 0">
+    No Files have been Uploaded Please Upload the File.
+  </div>
+  <mat-list-item *ngFor="let item of fileLinks">
+    <mat-icon>picture_as_pdf</mat-icon>
+    <a href="{{item}}" target="_blank"mat-line>{{item}}</a>
+    <mat-divider></mat-divider>
+  </mat-list-item>
+</mat-list>
+<!-- <div >
+  <a href="{{item}}" target="_blank">{{item}}</a>
+</div> -->
+<router-outlet></router-outlet>
+
