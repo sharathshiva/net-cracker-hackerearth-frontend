@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
 })
 export class FileUploadService {
 
-   URL:string = "https://net-cracker-backend.herokuapp.com";
+   URL:string = environment.baseURL;
 
   constructor(private http: HttpClient) { }
 
